@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, ImagePickerType){
+    ImagePickerTypeCamera = 1,
+    ImagePickerTypeNone,
+};
+
 typedef void (^ImagePickerFinishAction)(UIImage *image);
 
 @interface ImagePicker : NSObject
+
+@property (assign, nonatomic) ImagePickerType type;
+
+
 
 /**
  @param viewController  用于present UIImagePickerController对象

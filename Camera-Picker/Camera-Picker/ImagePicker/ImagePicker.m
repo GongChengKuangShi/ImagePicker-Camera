@@ -72,13 +72,14 @@ static ImagePicker *bdImagePickerInstance = nil;
     } else {
         bdImagePickerInstance = nil;
     }
+    //如果还有其他自定义的ViewController，可以增加枚举值 -> ImagePickerType 的个数来进行判断
 }
 
-- (void)isCamere:(BOOL)isCamera {
+- (void)isCamere:(ImagePickerType)type {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    if (isCamera) {
+    if (type == ImagePickerTypeCamera) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.allowsEditing = _allowsEditing;
     } else {
